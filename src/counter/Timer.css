@@ -1,0 +1,32 @@
+button{
+font-size: 30px;
+margin-right: 5%;
+margin-left: -100%;
+font-family: monospace;
+-webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+
+
+span {
+    display: flex;
+    font-size: 50px;
+    justify-content: space-around;
+    margin-right: 45%;
+    margin-left: 40%;
+    margin-top: 15%;
+
+}
+
+.bleu {
+    background: blue;
+}
+
+.orange {
+    background:orange;
+}
+
+.rouge {
+    background:red;
+}
