@@ -4,7 +4,11 @@ import Timer from './counter/Timer';
 
 function App() {
   return (
-      <Timer/>
+    <div>
+      <Timer seconds={40}/>
+      <Timer seconds={45}/>
+      <Timer seconds={50}/>
+    </div>
       )
     }
 

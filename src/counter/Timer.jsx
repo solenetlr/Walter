@@ -4,7 +4,7 @@ import "./Timer.css"
 class Timer extends React.Component {
   constructor() {
     super();
-    this.state = { time: {}, seconds: 40 };
+    this.state = { time: {}, seconds: 40};
     this.timer = 0;
     this.startTimer = this.startTimer.bind(this);
     this.countDown = this.countDown.bind(this);
@@ -19,10 +19,13 @@ class Timer extends React.Component {
     let divisor_for_seconds = divisor_for_minutes % 60;
     let seconds = Math.ceil(divisor_for_seconds);
 
+    
+
     let obj = {
       "h": hours,
       "m": minutes,
-      "s": seconds
+      "s": seconds 
+    
     };
     return obj;
   }
@@ -38,6 +41,7 @@ class Timer extends React.Component {
     }
   }
 
+
   countDown() {
     // Remove one second, set state so a re-render happens.
     let seconds = this.state.seconds - 1;
@@ -46,22 +50,28 @@ class Timer extends React.Component {
       seconds: seconds,
     });
     
+  
+
     // Check if we're at zero.
     if (seconds == 0) { 
       clearInterval(this.timer);
     }
   }
-
+ 
   render() {
+  
     return(
-      <span class={this.state.time.s>=20? "bleu" :
+    
+      <span className={this.state.time.s>=20? "bleu" :
                   this.state.time.s >=12 && this.state.time.s < 20? "orange": "rouge"}>
-        <button onClick={this.startTimer}> Démarrer </button>  
-         {this.state.time.s}
+        <button onClick={this.startTimer}> Démarrer </button> 
+        <p> {this.state.time.s < 10 ? "0" + this.state.time.s : this.state.time.s } </p>
          </span>
-     
+    
     );
+       
   }
+  
 }
 
   export default Timer; 
