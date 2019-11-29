@@ -33,23 +33,20 @@ class Timer extends React.Component {
     this.setState({ time: timeLeftVar });
   }
 
-    //Mise en place du démarrage du compteur en secondes
+    //Mise en place du démarrage du compteur en secondes + Vérification que le compteur n'aille pas en dessous de 0
   startTimer() {
     if (this.state.pause && this.state.seconds>0) {
     this.setState({pause:false})
-
-  
-      this.timer = setInterval(this.countDown, 1000);
+    this.timer = setInterval(this.countDown, 1000);
     }
   }
-
+  //Mise en place d'une pause
  breakTimer() {
    if (!this.state.pause) {
      this.setState({pause:true})
   clearInterval(this.timer)
    }
  }
-
 
   countDown() {
     // Retrait d'une seconde avec le set state
@@ -70,15 +67,14 @@ class Timer extends React.Component {
   render() {
     return(
       //Ternaire afin de transformer les couleurs du rectangle + Bouton + Application du "0" devant les chiffres
+  
       <span className={this.state.time.s>=20? "bleu" :
                   this.state.time.s >=12 && this.state.time.s < 20? "orange": "rouge"}>
-        <button onClick={this.startTimer}> Démarrer </button> 
-        <button onClick={this.breakTimer}> Pause </button> 
+        <button className="start" onClick={this.startTimer}> ▶️</button> 
+         <button className="pause" onClick={this.breakTimer}> ⏸</button> 
         <p> {this.state.time.s < 10 ? "0" + this.state.time.s : this.state.time.s } </p>
          </span>
-    
-   
-       
+         
     );
   }
 }
